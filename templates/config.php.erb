@@ -1,17 +1,23 @@
 <?php
+// FILE IS MANAGED BY PUPPET
+// Manual changes will be overwritten!
+
 $CONFIG = array (
-  'overwritewebroot' => '/owncloud',
-  'passwordsalt' => '<%= scope.lookupvar('owncloud::server::passwordsalt') %>',
-  'datadirectory' => '<%= scope.lookupvar('owncloud::server::data_dir') %>',
+  'passwordsalt' => '<%= scope.lookupvar('owncloud::passwordsalt') %>',
+  'datadirectory' => '<%= scope.lookupvar('owncloud::data_dir') %>',
   'dbtype' => 'mysql',
   'appstoreenabled' => false,
   'writable_appsdir' => false,
-  'dbname' => '<%= scope.lookupvar('owncloud::server::mysql_database') %>',
-  'dbhost' => '<%= scope.lookupvar('owncloud::server::mysql_host') %>',
+  'dbname' => '<%= scope.lookupvar('owncloud::mysql_database') %>',
+  'dbhost' => '<%= scope.lookupvar('owncloud::mysql_host') %>',
   'dbtableprefix' => 'oc_',
-  'dbuser' => '<%= scope.lookupvar('owncloud::server::mysql_user') %>',
-  'dbpassword' => '<%= scope.lookupvar('owncloud::server::mysql_password') %>',
+  'dbuser' => '<%= scope.lookupvar('owncloud::mysql_user') %>',
+  'dbpassword' => '<%= scope.lookupvar('owncloud::mysql_password') %>',
   'loglevel' => '3',
   'installed' => true,
-  'instanceid' => '<%= scope.lookupvar('owncloud::server::instanceid') %>',
+  'instanceid' => '<%= scope.lookupvar('owncloud::instanceid') %>',
+  'version' => '100.0.0', // disable auto updater
+  
+  //@TODO: make more dynamic. Puppetize!
+  'datadirectory' => '/srv/owncloud',
 );

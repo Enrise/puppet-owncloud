@@ -59,6 +59,7 @@ class owncloud (
     group   => $owncloud::user,
     mode    => '0600',
     content => template('owncloud/config.php.erb'),
+    require => Package[$packages], # Provides /var/www/owncloud/config/
   }
   
   file { '/var/www/owncloud/config/config.php':
@@ -68,6 +69,7 @@ class owncloud (
     group   => $owncloud::user,
     mode    => '0600',
     force   => true,
+    require => Package[$packages], # Provides /var/www/owncloud/config/
   }
 
   cron { 'owncloud-cron':
